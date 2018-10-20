@@ -1,0 +1,124 @@
+
+
+@font-face {
+    font-family: SWFont;
+    src: url("../fonts/Starjedi.ttf");
+}
+
+body  {
+    background-image: url("../images/background.jpg");
+    font-family: 'SWFont';
+}
+
+.main-container{
+	margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.nav-container{
+    margin-top: 2%;
+    background-color: rgb(119, 136, 153, 0.6);
+    padding: 2%;
+}
+
+.menu-container {
+	background-color: rgb(0,0,0,0.5);
+	padding: 4%;
+}
+
+.footer-container {
+	color: white;
+}
+
+.align-items-center {
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-display {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.title-text {
+	margin-left: 10%;
+	color: white;
+	font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.nav-text{
+	color: black;
+	text-shadow: 0 0 5px white;
+	font-weight: bold;
+}
+
+.btn-container {
+	align-self: center;
+    text-align: center;
+}
+
+.custom-button {
+	color: black;
+	background: radial-gradient(white, rgb(149, 15, 176));
+	padding: 5px 40px;
+	border-radius: 100px;
+	font-weight: bold;
+	transition: all 0.2s ease-in-out;
+	font-size: 125%;
+}
+
+.glow-button:hover {
+	text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+	box-shadow: 0 0px 15px rgba(200, 20, 232, 1);
+	color: black;
+}
+
+.starship-btn {
+	color: white;
+	background: none;
+	font-weight: normal;
+	padding:10px 15px 0px 0px;
+}
+
+.lightsaber {
+	color: white;
+	background: radial-gradient(white, red);
+	font-weight: normal;
+	padding:0px;
+	padding-left:0px;
+	width:5%;
+	display: block;
+	border-radius:0px 100px 100px 0px;
+	transition:width 0.2s ease,
+		color 0.2s ease,
+		text-shadow 0.2s ease,
+		width 0.1s ease;
+}
+
+.lightsaber:hover {
+	width:110%;
+    color:black;
+    text-shadow: 0 0 3px #F00, 0 0 5px #000;
+    box-shadow: 0 0px 10px rgba(255, 0, 0, 1);
+}
+
+ul{
+	list-style:none
+}
+
+.list-container {
+	padding-top: 2%;
+    padding-left: 0%;
+    text-shadow: 0 0 10px #000;
+}
+
+.table-style {
+	color: white;
+	text-shadow: 0 0 10px #000;
+	width:100%;
+}
