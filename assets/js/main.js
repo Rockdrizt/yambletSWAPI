@@ -115,10 +115,23 @@ var page = function(){
 		}
 	}
 
+	function validateData(){
+		
+		var isOk = false
+
+		var name = document.getElementById("name")
+		
+		if(typeof name.value == "string")
+			isOk = true
+		
+		return isOk
+	}
+
 	return{
 		drawFilmsTable:drawFilmsTable,
 		fillCustomTable:fillCustomTable,
 		setText:setText,
-		fillDataTable:fillDataTable
+		fillDataTable:fillDataTable,
+		validateData:validateData
 	}
 }()

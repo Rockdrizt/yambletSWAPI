@@ -75,6 +75,25 @@
 		</div>
 	</section>
 
+	<div>
+		<form action="assets/php/action.php" method="post" onSubmit="return page.validateData()">
+		
+			<div>
+				<img src="assets/images/lightsaber.png" alt="lightsaber" class="lightsaber-img">
+				<input type="text" name="name" placeholder="starships name" id="name" maxlength="30" required>
+			</div>
+			<div>
+				<img src="assets/images/lightsaber.png" alt="lightsaber" class="lightsaber-img">
+				<input type="number" name="passengers" placeholder="passengers" min="0" max="999999999">
+			</div>
+			<div>
+				<img src="assets/images/lightsaber.png" alt="lightsaber" class="lightsaber-img">
+				<input type="number" name="capacity" placeholder="cargo capacity" min="0" max="999999999">
+			</div>
+			<input type="submit" value="send">
+		</form>
+	</div>
+
 	<hr>
 
 	<footer class="text-center footer-container">

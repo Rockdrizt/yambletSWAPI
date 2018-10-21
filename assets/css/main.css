@@ -12,6 +12,8 @@
 
 body  {
     background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: 'SWFont';
 }
 
@@ -22,7 +24,6 @@ body  {
 }
 
 .nav-container{
-    margin-top: 2%;
     background-color: rgb(119, 136, 153, 0.6);
     padding: 2%;
 }
@@ -70,7 +71,6 @@ body  {
 .nav-text{
 	color: black;
 	text-shadow: 0 0 10px white;
-	font-weight: bold;
 	text-align: center;
 }
 
@@ -81,7 +81,7 @@ body  {
 
 .custom-button {
 	color: black;
-	background: radial-gradient(white, rgb(149, 15, 176));
+	background: radial-gradient(white, #551a8b);
 	padding: 5px 40px;
 	border-radius: 100px;
 	font-weight: bold;
@@ -90,9 +90,8 @@ body  {
 }
 
 .custom-button:hover {
-	text-shadow: 0 0 5px #FF0000, 0 0 5px #0000FF;
-	box-shadow: 0 0 20px rgba(200, 20, 232, 1);
-	color: black;
+	text-shadow: 0 0 5px #551a8b;
+	box-shadow: 0 0 20px #551a8b;
 }
 
 .starship-btn {
@@ -128,7 +127,7 @@ ul{
 }
 
 .color-purple {
-	color: rgb(149, 15, 176)
+	color: rgb(149, 15, 176);
 }
 
 .list-container {
@@ -159,5 +158,105 @@ ul{
 .row-style:hover {
 	color: black!important;
 	text-shadow: 0 0 10px #fff;
-	background: radial-gradient(white, green);
+	background: radial-gradient(white, #2FF923);
+}
+
+input[type=text], input[type=number]{
+   
+   	width: 25%;
+    padding: 5px 30px;
+    margin: 1% 2%;
+    border-radius:0px 100px 100px 0px;
+    background: radial-gradient(white, #2FF923);
+    text-shadow: 0 0 10px #fff;
+    box-shadow: 0 0px 10px #2FF923;
+    border: none;
+    -webkit-transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
+}
+
+input[type=text]:focus, input[type=number]:focus {
+    width: 50%;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+
+	background: radial-gradient(white, red);
+	margin: 1% 3%;
+	padding: 5px 20px;
+	border-radius:100px 100px;
+	color:black;
+    text-shadow: 0 0 5px #F00;
+    border: none;
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+
+	text-shadow: 0 0 5px #F00;
+	box-shadow: 0 0 20px #F00;
+}
+
+.lightsaber-img {
+	position: relative;
+	margin-right: -5%;
+}
+
+
+@media screen and (max-width: 600px) {
+
+	[class*="col-"] {
+        width: 100%;
+    }
+
+    .table-header{
+    	font-size: small !important;
+    	text-align: center;
+    }
+    .span-style {
+    	font-size: small;
+    }
+
+    .starship-btn {
+    	font-size: small;
+    }
+
+    .nav-container{
+    	display: flex;
+    }
+
+    .nav-text {
+    	width: 70%;
+    }
+
+    .btn-container {
+    	float: left;
+    	width: 30%;
+    }
+
+    .sectionTitle{
+    	font-size: x-large;
+    }
+
+    .mainTitle{
+    	font-size: xx-large;
+    	margin-left: 16%;
+    }
+
+	input[type=text], input[type=number]{
+	   
+	   	width: 40%;
+	}
+
+	input[type=text]:focus, input[type=number]:focus {
+	    width: 70%;
+	}
+
+	input[type=button], input[type=submit], input[type=reset] {
+
+		text-align: center;
+	}
+
+	.lightsaber-img {
+		margin-right: -10%;
+	}
 }
