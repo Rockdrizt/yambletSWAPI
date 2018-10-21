@@ -16,12 +16,12 @@
 
 	<section>
 		<div class="container-fluid">
-			<div class="row main-container">
-				<div class="col-md-4">
-			         <img class="img-responsive home-button" src="assets/images/deathStar.png" alt="home button">
+			<div >
+				<div class="death-star">
+			         <img src="assets/images/deathStar.png" alt="death star">
 			    </div>
-			    <div class="col-md-8 col-lg-5 flex-display align-items-center">			        
-			          <h1 class="title-text">Yamblet Test</h1>			        
+			    <div class="title-text">
+			    	<h1>Yamblet Test</h1>
 			    </div>
 			</div>
 		</div>
@@ -31,7 +31,7 @@
 		<div class="container-fluid">
 			<div class="row nav-container">
 				<div class="col-md-4 btn-container">		   
-			         <a class="btn custom-button glow-button" role="button" href="index.html">Home</a>        
+			         <a class="btn custom-button" role="button" href="index.html">Home</a>        
 			    </div>
 			    <div class="col-md-8 col-lg-5 nav-text">
 			          <h2 class="sectionTitle"></h2>
@@ -45,26 +45,23 @@
 			<div class="row">
 				<div class="col-md-3 list-container">
 			   		<ul>
-					    <li>
+			   			<li>
 					    	<h4>
-					    		<a href="#Top" class="sectionTitle"></a>
-					    	</h4>
-					      
-					    </li>
-					    <!-- <li>
-					      <a href="#">Section 2</a>
+					    		<a class="color-purple" href="index.html">Star Wars Films</a>
+					    	</h4>					      
 					    </li>
 					    <li>
-					      <a href="#">Section 3</a>
-					    </li> -->
-					    
+					    	<h5>
+					    		<a href="#Top" class="sectionTitle color-purple"></a>
+					    	</h5>					      
+					    </li>					    
 				    </ul>
 			        
 			    </div>
 			    <div class="col-md-9 ">
 		        	<table id="customTable" class="table-style">
 		        		<tr>		        			
-						    <th><h5>Space Ships</h5></th>						    						  
+						    <th><h5>Star Ships</h5></th>						    						  
 						</tr>
 
 		        	</table>
@@ -82,10 +79,11 @@
 
 	<script type="text/javascript">
 
-		var query = window.location.search;
+		var query = window.location.search
+		var filmNum = 1
 		
 		if (query.substring(0, 1) == '?') {
-			filmNum = query.substring(1);
+			filmNum = query.substring(1)
 		}
 		
 		var URLhost = 'https://swapi.co/api/films/' + filmNum + "/"
@@ -101,8 +99,6 @@
 				var response = JSON.parse(this.responseText)
 		    	console.log(response)
 
-		    	$(".sectionTitle").html(response.title)
-
 		    	for (var i = 0; i < response.starships.length; i++) {
 		    		
 		    		var URLship = response.starships[i]
@@ -114,7 +110,7 @@
 						if (this.readyState == 4 && this.status == 200) {
 
 							var response = JSON.parse(this.responseText)
-		    				SWAPI.fillCustomTable(response)
+		    				page.fillCustomTable(response, filmNum)
 						}
 						else{
 							console.log("Error request" + this.statusText)
@@ -122,6 +118,7 @@
 					}, newReq)
 					newReq.send(null)
 		    	}
+		    	page.setText("class", "sectionTitle", response.title)
 			}
 			else{
 				console.log("Error request" + this.statusText)

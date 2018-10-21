@@ -34,7 +34,7 @@
 			         <a class="btn custom-button" role="button" href="index.html">Home</a>        
 			    </div>
 			    <div class="col-md-8 col-lg-5 nav-text">
-			          <h2>Star Wars Films</h2>
+			          <h2 class="sectionTitle"></h2>
 			    </div>
 			</div>
 		</div>
@@ -45,22 +45,30 @@
 			<div class="row">
 				<div class="col-md-3 list-container">
 			   		<ul>
-					    <li>
+			   			<li>
 					    	<h4>
-					    		<a style="color: rgb(149, 15, 176)" href="#Top">Star Wars Films</a>
+					    		<a class="color-purple" href="index.html">Star Wars Films</a>
 					    	</h4>					      
-					    </li>					    
+					    </li>
+					    <li>
+					    	<h5>
+					    		<a class="color-purple" id="filmTitle" href="#" onclick="goBack()"></a>
+					    	</h5>					      
+					    </li>
+					    <li>
+					    	<h6>
+					    		<a href="#Top" class="sectionTitle color-purple"></a>
+					    	</h6>					      
+					    </li>
 				    </ul>
 			        
 			    </div>
-			    <div class="col-md-9">
-		        	<table id="filmsTable" class="table-style">
+			    <div class="col-md-9 ">
+		        	<table id="customTable" class="table-style">
 		        		<tr>		        			
-						    <th><h5>Title</h5></th>
-						    <th><h5>Director</h5></th> 
-						    <th><h5>Episode</h5></th>
-						    <th><h5>Hangar</h5></th>						    						  
+						    <th><h5 class="sectionTitle"></h5></th>						    						  
 						</tr>
+
 		        	</table>
 			    </div>
 			</div>
@@ -76,22 +84,53 @@
 
 	<script type="text/javascript">
 
-		var URLhost = 'https://swapi.co/api/films'
-		var req = new XMLHttpRequest()
+		var query = window.location.search
+		
+		if (query.substring(0, 1) == '?') {
+			dataArr = query.substring(1)
+			dataArr = dataArr.split("&")
+		}
 
-		req.open('GET', URLhost, true)
-		req.addEventListener('load', function(){
+		var filmNum = dataArr[0] || 1
+		var URLfilm = 'https://swapi.co/api/films/' + filmNum + "/"
+		var newReq = new XMLHttpRequest()
+
+		newReq.open('GET', URLfilm, true)
+		newReq.addEventListener('load', function(){
 
 			if (this.readyState == 4 && this.status == 200) {
+
 				var response = JSON.parse(this.responseText)
-		    	console.log(response)
-		    	page.drawFilmsTable(response.results)
+				page.setText("id", "filmTitle", response.title)
 			}
 			else{
 				console.log("Error request" + this.statusText)
 			}
-		},req);
-		req.send(null);
+		}, newReq)
+		newReq.send(null)
+		
+		var shipNum = dataArr[1] || 1
+		var URLhost = 'https://swapi.co/api/starships/' + shipNum + "/"
+		var request = new XMLHttpRequest()
+
+		request.open('GET', URLhost, true)
+		request.addEventListener('load', loadData, request)
+		request.send(null)
+
+		function loadData() {
+			if (this.readyState == 4 && this.status == 200) {
+				var response = JSON.parse(this.responseText)
+		    	page.fillDataTable(response)
+		    	page.setText("class", "sectionTitle", response.name)		    	
+			}
+			else{
+				console.log("Error request" + this.statusText)
+			}
+		}
+
+		function goBack() {
+		    window.location.href = "screen2.html?" + filmNum
+		}
 	</script>
 
 
